@@ -88,17 +88,18 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBR-R9-hiW">
-                                                    <rect key="frame" x="361" y="38" width="20" height="22"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQT-o3-N7r">
+                                                    <rect key="frame" x="284" y="14" width="56" height="52"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="trash" catalog="system"/>
+                                                    <state key="normal" image="checkmark.rectangle" catalog="system"/>
                                                     <connections>
-                                                        <action selector="deleteButton:" destination="3AX-Ut-KLQ" eventType="touchUpInside" id="ldU-vd-bge"/>
+                                                        <action selector="checkButton:" destination="3AX-Ut-KLQ" eventType="touchUpInside" id="6nL-5U-pe6"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="check" destination="qQT-o3-N7r" id="Rs4-XQ-Tpq"/>
                                             <outlet property="toDoLabel" destination="Mk4-tS-fnw" id="3ml-Pb-faQ"/>
                                         </connections>
                                     </tableViewCell>
@@ -133,8 +134,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark.rectangle" catalog="system" width="128" height="93"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

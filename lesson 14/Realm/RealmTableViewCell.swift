@@ -10,11 +10,12 @@ import RealmSwift
 
 class RealmTableViewCell: UITableViewCell {
     @IBOutlet weak var toDoLabel: UILabel!
-    @IBAction func deleteButton(_ sender: Any) {
+    @IBAction func checkButton(_ sender: Any) {
+        check.backgroundColor = .lightGray
+        backgroundColor = .lightGray
     }
-    
-    
-    
+    @IBOutlet weak var check: UIButton!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

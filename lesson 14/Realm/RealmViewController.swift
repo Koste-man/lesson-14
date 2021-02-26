@@ -45,6 +45,7 @@ class RealmViewController: UIViewController, UITableViewDelegate, UITableViewDat
         items = realm.objects(ToDoListItem.self).map({ $0 })
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.isEditing = true
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,4 +58,17 @@ class RealmViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            try! realm.write{
+                realm.delete(items[indexPath.row])
+            }
+            items.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 }
