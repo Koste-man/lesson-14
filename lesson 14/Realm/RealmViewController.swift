@@ -8,14 +8,14 @@
 import UIKit
 import RealmSwift
 
-class ToDoListItem: Object {
+class RealmListItem: Object {
     @objc dynamic var name = ""
 }
 
 class RealmViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let realm = try! Realm()
-    var items = [ToDoListItem]()
+    var items = [RealmListItem]()
     
     @IBOutlet weak var tableView: UITableView!
     @IBAction func addButton(_ sender: Any) {
@@ -27,7 +27,7 @@ class RealmViewController: UIViewController, UITableViewDelegate, UITableViewDat
         alert.addAction(UIAlertAction(title: "Add", style: .default, handler: {_ in
             if let field = alert.textFields?.first{
                 if let text = field.text, !text.isEmpty{
-                    let newItem = ToDoListItem()
+                    let newItem = RealmListItem()
                     newItem.name = text
                     self.items.append(newItem)
                     try! self.realm.write{
@@ -42,7 +42,7 @@ class RealmViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        items = realm.objects(ToDoListItem.self).map({ $0 })
+        items = realm.objects(RealmListItem.self).map({ $0 })
         tableView.delegate = self
         tableView.dataSource = self
         tableView.isEditing = true
@@ -53,7 +53,7 @@ class RealmViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCell", for: indexPath) as! RealmTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RealmCell", for: indexPath) as! RealmTableViewCell
         cell.toDoLabel.text = items[indexPath.row].name
         return cell
     }

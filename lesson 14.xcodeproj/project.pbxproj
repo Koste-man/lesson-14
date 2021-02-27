@@ -17,6 +17,9 @@
 		CA67864025DFD6EA001BDE59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA67863E25DFD6EA001BDE59 /* Main.storyboard */; };
 		CA67864225DFD6EA001BDE59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA67864125DFD6EA001BDE59 /* Assets.xcassets */; };
 		CA67864525DFD6EA001BDE59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA67864325DFD6EA001BDE59 /* LaunchScreen.storyboard */; };
+		CAE1CB9925E96BF200BAE781 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CAE1CB9725E96BF200BAE781 /* CoreData.xcdatamodeld */; };
+		CAE1CB9C25E96C3F00BAE781 /* CoreDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE1CB9B25E96C3F00BAE781 /* CoreDataViewController.swift */; };
+		CAE1CB9F25E96D0C00BAE781 /* CoreDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE1CB9E25E96D0C00BAE781 /* CoreDataTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,11 @@
 		CA67864125DFD6EA001BDE59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA67864425DFD6EA001BDE59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA67864625DFD6EA001BDE59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAE1CB9825E96BF200BAE781 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		CAE1CB9B25E96C3F00BAE781 /* CoreDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewController.swift; sourceTree = "<group>"; };
+		CAE1CB9E25E96D0C00BAE781 /* CoreDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewCell.swift; sourceTree = "<group>"; };
+		CAE1CBA925E973EE00BAE781 /* CoreDataListItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataListItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CAE1CBAA25E973EE00BAE781 /* CoreDataListItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataListItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +114,7 @@
 			children = (
 				CA537DE225DFD9C8006713F2 /* UserDefaults */,
 				CA537DF225DFDE47006713F2 /* Realm */,
+				CAE1CB9625E96BCD00BAE781 /* CoreData */,
 				CA67863E25DFD6EA001BDE59 /* Main.storyboard */,
 				CA67863825DFD6EA001BDE59 /* AppDelegate.swift */,
 				CA67863A25DFD6EA001BDE59 /* SceneDelegate.swift */,
@@ -114,6 +123,27 @@
 				CA67864625DFD6EA001BDE59 /* Info.plist */,
 			);
 			path = "lesson 14";
+			sourceTree = "<group>";
+		};
+		CAE1CB9625E96BCD00BAE781 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				CAE1CBAB25E973EE00BAE781 /* CoreDataListItem */,
+				CAE1CB9725E96BF200BAE781 /* CoreData.xcdatamodeld */,
+				CAE1CB9B25E96C3F00BAE781 /* CoreDataViewController.swift */,
+				CAE1CB9E25E96D0C00BAE781 /* CoreDataTableViewCell.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		CAE1CBAB25E973EE00BAE781 /* CoreDataListItem */ = {
+			isa = PBXGroup;
+			children = (
+				CAE1CBA925E973EE00BAE781 /* CoreDataListItem+CoreDataClass.swift */,
+				CAE1CBAA25E973EE00BAE781 /* CoreDataListItem+CoreDataProperties.swift */,
+			);
+			name = CoreDataListItem;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,12 +260,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAE1CB9F25E96D0C00BAE781 /* CoreDataTableViewCell.swift in Sources */,
 				CA537DE425DFD9FC006713F2 /* UserNamePersistence.swift in Sources */,
+				CAE1CB9C25E96C3F00BAE781 /* CoreDataViewController.swift in Sources */,
 				CA537DF525DFE6A9006713F2 /* RealmTableViewCell.swift in Sources */,
 				CA67863925DFD6EA001BDE59 /* AppDelegate.swift in Sources */,
 				CA537DEF25DFDE3D006713F2 /* RealmViewController.swift in Sources */,
 				CA537DEB25DFDC86006713F2 /* UserDefaultsViewController.swift in Sources */,
 				CA67863B25DFD6EA001BDE59 /* SceneDelegate.swift in Sources */,
+				CAE1CB9925E96BF200BAE781 /* CoreData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +472,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CAE1CB9725E96BF200BAE781 /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CAE1CB9825E96BF200BAE781 /* CoreData.xcdatamodel */,
+			);
+			currentVersion = CAE1CB9825E96BF200BAE781 /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CA67862D25DFD6E9001BDE59 /* Project object */;
 }
