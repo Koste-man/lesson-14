@@ -10,9 +10,11 @@ import RealmSwift
 
 class RealmTableViewCell: UITableViewCell {
     @IBOutlet weak var toDoLabel: UILabel!
+    var tapCheck: (()-> Void)? = nil
     @IBAction func checkButton(_ sender: Any) {
         check.backgroundColor = .lightGray
         backgroundColor = .lightGray
+        tapCheck?()
     }
     @IBOutlet weak var check: UIButton!
 

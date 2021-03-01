@@ -10,6 +10,7 @@ import RealmSwift
 
 class RealmListItem: Object {
     @objc dynamic var name = ""
+    @objc dynamic var done = false
 }
 
 class RealmViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -55,6 +56,20 @@ class RealmViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RealmCell", for: indexPath) as! RealmTableViewCell
         cell.toDoLabel.text = items[indexPath.row].name
+        if items[indexPath.row].done == false{
+            cell.backgroundColor = .white
+            cell.check.backgroundColor = .white
+        }else{
+            cell.backgroundColor = .lightGray
+            cell.check.backgroundColor = .lightGray
+        }
+        cell.tapCheck = {
+            try! self.realm.write{
+                self.items[indexPath.row].done = !self.items[indexPath.row].done
+                self.realm.add(self.items)
+            }
+            self.tableView.reloadData()
+        }
         return cell
     }
     
