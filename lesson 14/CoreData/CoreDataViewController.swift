@@ -73,6 +73,21 @@ class CoreDataViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CoreCell", for: indexPath) as! CoreDataTableViewCell
         cell.toDoLabel.text = tasks[indexPath.row].name
+        if tasks[indexPath.row].done == false{
+            cell.backgroundColor = .white
+            cell.checkButton.backgroundColor = .white
+        } else{
+            cell.backgroundColor = .lightGray
+            cell.checkButton.backgroundColor = .lightGray
+        }
+        
+        cell.tapCheck = {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            self.tasks[indexPath.row].done = !self.tasks[indexPath.row].done
+            try? context.save()
+            self.tableView.reloadData()
+        }
         return cell
     }
     

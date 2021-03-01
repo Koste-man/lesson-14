@@ -6,13 +6,16 @@
 //
 
 import UIKit
+import CoreData
 
 class CoreDataTableViewCell: UITableViewCell {
     @IBOutlet weak var toDoLabel: UILabel!
+    var tapCheck: (()-> Void)? = nil
     @IBOutlet weak var checkButton: UIButton!
     @IBAction func checkButtonAction(_ sender: Any) {
         checkButton.backgroundColor = .lightGray
         backgroundColor = .lightGray
+        tapCheck?()
     }
     
     override func awakeFromNib() {
