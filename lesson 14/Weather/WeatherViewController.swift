@@ -27,12 +27,21 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         temperature = realm.objects(SearchResponse.self).map({ $0 })
         tableView.delegate = self
         tableView.dataSource = self
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        realmSave()
+        print(temperature)
+    }
+    
+    func realmSave(){
+        try! realm.write{
+            realm.add(temperature)
+        }
+    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,15 +70,11 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
                                 let list = json["list"] as? [[String:Any]]
                                 let main = list![8*day]["main"] as? [String:Any]
                                 let temp = main?["temp"] as? Double
-                                DispatchQueue.main.async{
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2){
                                     cell.temperatureLabel.text = "\(temp!) °C"
                                     let newTemp = SearchResponse()
                                     newTemp.temp = temp!
                                     self.temperature.append(newTemp)
-                                    
-                                    try! self.realm.write{
-                                            self.realm.add(self.temperature)
-                                    }
                                 }
                             }
                         }catch{
