@@ -35,6 +35,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         temperature = realm.objects(SearchResponse.self).map({ $0 })
+        print(temperature)
         loadWeather()
         tableView.delegate = self
         tableView.dataSource = self
@@ -61,13 +62,14 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         return cell
     }
+
     func loadWeather(){
-        for day in daysAmount{
         let url = URL(string: "http://api.openweathermap.org/data/2.5/forecast?q=moskva&appid=b65da8724c62e02aa8372c570bdf339d&units=metric")!
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let data = data{
                 do{
                     if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any]{
+                        for day in self.daysAmount{
                         let list = json["list"] as? [[String:Any]]
                         let main = list![8*day]["main"] as? [String:Any]
                         let temp = main?["temp"] as? Double
@@ -77,12 +79,12 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
                             self.temperature.append(newTemp)
                         }
                     }
+                    }
                 }catch{
                     print("json error")
                 }
             }
         }
         task.resume()
-    }
-    }
+}
 }
