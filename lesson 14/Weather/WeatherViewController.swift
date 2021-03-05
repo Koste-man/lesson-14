@@ -17,14 +17,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     
     let realm = try! Realm()
-    var temperature = [SearchResponse](){
-        didSet{
-            try! realm.write{
-                realm.add(temperature)
-            }
-        }
-    }
-    
+    var temperature = [SearchResponse]()
     
     var calendar = Calendar.current
     let today = Date()
@@ -52,7 +45,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.temperatureLabel.text = "\(temperature[indexPath.row].temp)"
         }
             DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                cell.temperatureLabel.text = "\(self.temperature[indexPath.row].temp)"
+                cell.temperatureLabel.text = "\(self.temperature[indexPath.row].temp) °C"
         }
                 //CellDateLabel
         let midnight = calendar.startOfDay(for: today)
@@ -69,16 +62,23 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             if let data = data{
                 do{
                     if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any]{
-                        for day in self.daysAmount{
-                        let list = json["list"] as? [[String:Any]]
-                        let main = list![8*day]["main"] as? [String:Any]
-                        let temp = main?["temp"] as? Double
-                        DispatchQueue.main.asyncAfter(deadline: .now()){
-                            let newTemp = SearchResponse()
-                            newTemp.temp = temp!
-                            self.temperature.append(newTemp)
+                        DispatchQueue.main.async {
+                            try? self.realm.write{
+                                self.realm.delete(self.temperature)
+                            }
+                            self.temperature.removeAll()
+                            for day in self.daysAmount{
+                                let list = json["list"] as? [[String:Any]]
+                                let main = list![8*day]["main"] as? [String:Any]
+                                let temp = main?["temp"] as? Double
+                                let newTemp = SearchResponse()
+                                newTemp.temp = temp!
+                                self.temperature.append(newTemp)
+                            }
+                            try? self.realm.write{
+                                self.realm.add(self.temperature)
+                            }
                         }
-                    }
                     }
                 }catch{
                     print("json error")
