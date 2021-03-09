@@ -4,7 +4,11 @@
         <attribute name="done" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="Weather" representedClassName="Weather" syncable="YES">
+        <attribute name="temp" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
     <elements>
         <element name="CoreDataListItem" positionX="-63" positionY="-18" width="128" height="59"/>
+        <element name="Weather" positionX="-63" positionY="0" width="128" height="44"/>
     </elements>
 </model>

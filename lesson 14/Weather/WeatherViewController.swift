@@ -7,17 +7,13 @@
 
 import UIKit
 import RealmSwift
-
-class SearchResponse: Object {
-    @objc dynamic var temp: Double = 0
-}
+import CoreData
 
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let realm = try! Realm()
-    var temperature = [SearchResponse]()
+    var temperature = [Weather]()
     
     var calendar = Calendar.current
     let today = Date()
@@ -27,7 +23,6 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        temperature = realm.objects(SearchResponse.self).map({ $0 })
         print(temperature)
         loadWeather()
         tableView.delegate = self
@@ -41,11 +36,18 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TemperatureTableViewCell
                 //CellTemperatureLabel
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<Weather>(entityName: "Weather")
+        let tempData = try? context.fetch(fetchRequest)
+        temperature = tempData!
+        
         if !temperature.isEmpty{
             cell.temperatureLabel.text = "\(temperature[indexPath.row].temp)"
         }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                cell.temperatureLabel.text = "\(self.temperature[indexPath.row].temp) °C"
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+            cell.temperatureLabel.text = "\(self.temperature[indexPath.row].temp) °C"
         }
                 //CellDateLabel
         let midnight = calendar.startOfDay(for: today)
@@ -63,20 +65,20 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
                 do{
                     if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any]{
                         DispatchQueue.main.async {
-                            try? self.realm.write{
-                                self.realm.delete(self.temperature)
+                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                            let context = appDelegate.persistentContainer.viewContext
+                            let fetchRequest = NSFetchRequest<Weather>(entityName: "Weather")
+                            let tempData = try? context.fetch(fetchRequest)
+                            for data in tempData!{
+                                context.delete(data)
                             }
+                            try? context.save()
                             self.temperature.removeAll()
                             for day in self.daysAmount{
                                 let list = json["list"] as? [[String:Any]]
                                 let main = list![8*day]["main"] as? [String:Any]
                                 let temp = main?["temp"] as? Double
-                                let newTemp = SearchResponse()
-                                newTemp.temp = temp!
-                                self.temperature.append(newTemp)
-                            }
-                            try? self.realm.write{
-                                self.realm.add(self.temperature)
+                                self.tempSave(temp: temp!)
                             }
                         }
                     }
@@ -87,4 +89,16 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         task.resume()
 }
+    
+    func tempSave(temp: Double){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let weatherData = Weather(context: context)
+        weatherData.temp = temp
+        
+        try? context.save()
+        temperature.append(weatherData)
+        
+    }
 }

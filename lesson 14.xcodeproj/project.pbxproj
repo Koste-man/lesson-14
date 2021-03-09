@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BA233BCD198A0B52D5CA3B37 /* Pods_lesson_14.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224E807D79EAFE53D23D22CA /* Pods_lesson_14.framework */; };
+		CA0D1FEB25F7760000CE202E /* Weather+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0D1FEA25F7760000CE202E /* Weather+CoreDataClass.swift */; };
+		CA0D1FF125F7761E00CE202E /* Weather+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0D1FF025F7761E00CE202E /* Weather+CoreDataProperties.swift */; };
 		CA537DE425DFD9FC006713F2 /* UserNamePersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA537DE325DFD9FC006713F2 /* UserNamePersistence.swift */; };
 		CA537DEB25DFDC86006713F2 /* UserDefaultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA537DEA25DFDC86006713F2 /* UserDefaultsViewController.swift */; };
 		CA537DEF25DFDE3D006713F2 /* RealmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA537DEE25DFDE3D006713F2 /* RealmViewController.swift */; };
@@ -28,6 +30,8 @@
 		224E807D79EAFE53D23D22CA /* Pods_lesson_14.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lesson_14.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3209460CF7883E71983C7447 /* Pods-lesson 14.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lesson 14.release.xcconfig"; path = "Target Support Files/Pods-lesson 14/Pods-lesson 14.release.xcconfig"; sourceTree = "<group>"; };
 		4EACA290AE910BBC4FBD21E9 /* Pods-lesson 14.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lesson 14.debug.xcconfig"; path = "Target Support Files/Pods-lesson 14/Pods-lesson 14.debug.xcconfig"; sourceTree = "<group>"; };
+		CA0D1FEA25F7760000CE202E /* Weather+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Weather+CoreDataClass.swift"; path = "/Users/konstantinmoskvichev/Desktop/lesson 14/lesson 14/Weather/Weather+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		CA0D1FF025F7761E00CE202E /* Weather+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Weather+CoreDataProperties.swift"; path = "/Users/konstantinmoskvichev/Desktop/lesson 14/lesson 14/Weather/Weather+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		CA537DE325DFD9FC006713F2 /* UserNamePersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNamePersistence.swift; sourceTree = "<group>"; };
 		CA537DEA25DFDC86006713F2 /* UserDefaultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsViewController.swift; sourceTree = "<group>"; };
 		CA537DEE25DFDE3D006713F2 /* RealmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 		CABAD6BE25ED495B00F404A2 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				CA0D1FF025F7761E00CE202E /* Weather+CoreDataProperties.swift */,
+				CA0D1FEA25F7760000CE202E /* Weather+CoreDataClass.swift */,
 				CABAD6BB25ED492F00F404A2 /* WeatherViewController.swift */,
 				CABAD6C025ED4A2C00F404A2 /* TemperatureTableViewCell.swift */,
 			);
@@ -280,10 +286,12 @@
 				CAE1CB9C25E96C3F00BAE781 /* CoreDataViewController.swift in Sources */,
 				CA537DF525DFE6A9006713F2 /* RealmTableViewCell.swift in Sources */,
 				CA67863925DFD6EA001BDE59 /* AppDelegate.swift in Sources */,
+				CA0D1FEB25F7760000CE202E /* Weather+CoreDataClass.swift in Sources */,
 				CA537DEF25DFDE3D006713F2 /* RealmViewController.swift in Sources */,
 				CABAD6C125ED4A2C00F404A2 /* TemperatureTableViewCell.swift in Sources */,
 				CA537DEB25DFDC86006713F2 /* UserDefaultsViewController.swift in Sources */,
 				CA67863B25DFD6EA001BDE59 /* SceneDelegate.swift in Sources */,
+				CA0D1FF125F7761E00CE202E /* Weather+CoreDataProperties.swift in Sources */,
 				CAE1CB9925E96BF200BAE781 /* CoreData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
