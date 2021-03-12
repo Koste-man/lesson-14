@@ -1,8 +1,8 @@
 //
 //  CoreDataListItem+CoreDataClass.swift
-//  
+//  lesson 14
 //
-//  Created by Konstantin Moskvichev on 26.02.2021.
+//  Created by Konstantin Moskvichev on 12.03.2021.
 //
 //
 

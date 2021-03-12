@@ -1,8 +1,8 @@
 //
 //  CoreDataListItem+CoreDataProperties.swift
-//  
+//  lesson 14
 //
-//  Created by Konstantin Moskvichev on 26.02.2021.
+//  Created by Konstantin Moskvichev on 12.03.2021.
 //
 //
 
@@ -16,7 +16,11 @@ extension CoreDataListItem {
         return NSFetchRequest<CoreDataListItem>(entityName: "CoreDataListItem")
     }
 
+    @NSManaged public var done: Bool
     @NSManaged public var name: String?
-    @NSManaged public var done: Boolean?
+
+}
+
+extension CoreDataListItem : Identifiable {
 
 }

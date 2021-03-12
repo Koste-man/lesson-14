@@ -1,8 +1,8 @@
 //
 //  Weather+CoreDataProperties.swift
-//  
+//  lesson 14
 //
-//  Created by Konstantin Moskvichev on 09.03.2021.
+//  Created by Konstantin Moskvichev on 12.03.2021.
 //
 //
 
@@ -17,5 +17,9 @@ extension Weather {
     }
 
     @NSManaged public var temp: Double
+
+}
+
+extension Weather : Identifiable {
 
 }
