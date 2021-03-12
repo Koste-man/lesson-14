@@ -23,7 +23,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(temperature)
+        getCoreWeather()
         loadWeather()
         tableView.delegate = self
         tableView.dataSource = self
@@ -36,12 +36,6 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TemperatureTableViewCell
                 //CellTemperatureLabel
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<Weather>(entityName: "Weather")
-        let tempData = try? context.fetch(fetchRequest)
-        temperature = tempData!
         
         if !temperature.isEmpty{
             cell.temperatureLabel.text = "\(temperature[indexPath.row].temp)"
@@ -58,6 +52,14 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
 
+    func getCoreWeather(){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<Weather>(entityName: "Weather")
+        let tempData = try? context.fetch(fetchRequest)
+        temperature = tempData!
+    }
+    
     func loadWeather(){
         let url = URL(string: "http://api.openweathermap.org/data/2.5/forecast?q=moskva&appid=b65da8724c62e02aa8372c570bdf339d&units=metric")!
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
