@@ -19,10 +19,10 @@
 		CA67864525DFD6EA001BDE59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA67864325DFD6EA001BDE59 /* LaunchScreen.storyboard */; };
 		CABAD6BC25ED492F00F404A2 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABAD6BB25ED492F00F404A2 /* WeatherViewController.swift */; };
 		CABAD6C125ED4A2C00F404A2 /* TemperatureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABAD6C025ED4A2C00F404A2 /* TemperatureTableViewCell.swift */; };
-		CAD9213B25FB7F050088AD7C /* CoreDataListItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9213725FB7F050088AD7C /* CoreDataListItem+CoreDataClass.swift */; };
-		CAD9213C25FB7F050088AD7C /* CoreDataListItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9213825FB7F050088AD7C /* CoreDataListItem+CoreDataProperties.swift */; };
-		CAD9213D25FB7F050088AD7C /* Weather+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9213925FB7F050088AD7C /* Weather+CoreDataClass.swift */; };
-		CAD9213E25FB7F050088AD7C /* Weather+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9213A25FB7F050088AD7C /* Weather+CoreDataProperties.swift */; };
+		CAD9215A25FB810C0088AD7C /* Weather+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9215625FB810C0088AD7C /* Weather+CoreDataClass.swift */; };
+		CAD9215B25FB810C0088AD7C /* Weather+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9215725FB810C0088AD7C /* Weather+CoreDataProperties.swift */; };
+		CAD9215C25FB810C0088AD7C /* CoreDataListItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9215825FB810C0088AD7C /* CoreDataListItem+CoreDataClass.swift */; };
+		CAD9215D25FB810C0088AD7C /* CoreDataListItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD9215925FB810C0088AD7C /* CoreDataListItem+CoreDataProperties.swift */; };
 		CAE1CB9925E96BF200BAE781 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CAE1CB9725E96BF200BAE781 /* CoreData.xcdatamodeld */; };
 		CAE1CB9C25E96C3F00BAE781 /* CoreDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE1CB9B25E96C3F00BAE781 /* CoreDataViewController.swift */; };
 		CAE1CB9F25E96D0C00BAE781 /* CoreDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE1CB9E25E96D0C00BAE781 /* CoreDataTableViewCell.swift */; };
@@ -45,10 +45,10 @@
 		CA67864625DFD6EA001BDE59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CABAD6BB25ED492F00F404A2 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		CABAD6C025ED4A2C00F404A2 /* TemperatureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureTableViewCell.swift; sourceTree = "<group>"; };
-		CAD9213725FB7F050088AD7C /* CoreDataListItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataListItem+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		CAD9213825FB7F050088AD7C /* CoreDataListItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataListItem+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		CAD9213925FB7F050088AD7C /* Weather+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		CAD9213A25FB7F050088AD7C /* Weather+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		CAD9215625FB810C0088AD7C /* Weather+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CAD9215725FB810C0088AD7C /* Weather+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CAD9215825FB810C0088AD7C /* CoreDataListItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataListItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CAD9215925FB810C0088AD7C /* CoreDataListItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataListItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CAE1CB9825E96BF200BAE781 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		CAE1CB9B25E96C3F00BAE781 /* CoreDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewController.swift; sourceTree = "<group>"; };
 		CAE1CB9E25E96D0C00BAE781 /* CoreDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewCell.swift; sourceTree = "<group>"; };
@@ -122,10 +122,7 @@
 		CA67863725DFD6EA001BDE59 /* lesson 14 */ = {
 			isa = PBXGroup;
 			children = (
-				CAD9213725FB7F050088AD7C /* CoreDataListItem+CoreDataClass.swift */,
-				CAD9213825FB7F050088AD7C /* CoreDataListItem+CoreDataProperties.swift */,
-				CAD9213925FB7F050088AD7C /* Weather+CoreDataClass.swift */,
-				CAD9213A25FB7F050088AD7C /* Weather+CoreDataProperties.swift */,
+				CAD9214B25FB80480088AD7C /* CoreDataItems */,
 				CA537DE225DFD9C8006713F2 /* UserDefaults */,
 				CA537DF225DFDE47006713F2 /* Realm */,
 				CAE1CB9625E96BCD00BAE781 /* CoreData */,
@@ -148,6 +145,17 @@
 				CABAD6C025ED4A2C00F404A2 /* TemperatureTableViewCell.swift */,
 			);
 			path = Weather;
+			sourceTree = "<group>";
+		};
+		CAD9214B25FB80480088AD7C /* CoreDataItems */ = {
+			isa = PBXGroup;
+			children = (
+				CAD9215625FB810C0088AD7C /* Weather+CoreDataClass.swift */,
+				CAD9215725FB810C0088AD7C /* Weather+CoreDataProperties.swift */,
+				CAD9215825FB810C0088AD7C /* CoreDataListItem+CoreDataClass.swift */,
+				CAD9215925FB810C0088AD7C /* CoreDataListItem+CoreDataProperties.swift */,
+			);
+			path = CoreDataItems;
 			sourceTree = "<group>";
 		};
 		CAE1CB9625E96BCD00BAE781 /* CoreData */ = {
@@ -273,21 +281,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAD9215B25FB810C0088AD7C /* Weather+CoreDataProperties.swift in Sources */,
 				CAE1CB9F25E96D0C00BAE781 /* CoreDataTableViewCell.swift in Sources */,
 				CABAD6BC25ED492F00F404A2 /* WeatherViewController.swift in Sources */,
-				CAD9213E25FB7F050088AD7C /* Weather+CoreDataProperties.swift in Sources */,
 				CA537DE425DFD9FC006713F2 /* UserNamePersistence.swift in Sources */,
-				CAD9213C25FB7F050088AD7C /* CoreDataListItem+CoreDataProperties.swift in Sources */,
-				CAD9213D25FB7F050088AD7C /* Weather+CoreDataClass.swift in Sources */,
 				CAE1CB9C25E96C3F00BAE781 /* CoreDataViewController.swift in Sources */,
 				CA537DF525DFE6A9006713F2 /* RealmTableViewCell.swift in Sources */,
-				CAD9213B25FB7F050088AD7C /* CoreDataListItem+CoreDataClass.swift in Sources */,
 				CA67863925DFD6EA001BDE59 /* AppDelegate.swift in Sources */,
+				CAD9215A25FB810C0088AD7C /* Weather+CoreDataClass.swift in Sources */,
 				CA537DEF25DFDE3D006713F2 /* RealmViewController.swift in Sources */,
 				CABAD6C125ED4A2C00F404A2 /* TemperatureTableViewCell.swift in Sources */,
 				CA537DEB25DFDC86006713F2 /* UserDefaultsViewController.swift in Sources */,
 				CA67863B25DFD6EA001BDE59 /* SceneDelegate.swift in Sources */,
 				CAE1CB9925E96BF200BAE781 /* CoreData.xcdatamodeld in Sources */,
+				CAD9215D25FB810C0088AD7C /* CoreDataListItem+CoreDataProperties.swift in Sources */,
+				CAD9215C25FB810C0088AD7C /* CoreDataListItem+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
